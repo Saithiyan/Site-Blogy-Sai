@@ -1,0 +1,259 @@
+
+
+/* ---------- Formulaire: inscription/connexion ---------- */
+h3{
+  color: rgb(208, 208, 208);
+  font-size: 2em;
+  margin-bottom: 10%;
+}
+.pError{
+  color: rgb(210, 0, 0);
+  font-size: 1.25em;
+}
+.pWarning{
+  color: rgb(208, 135, 0);
+  font-size: 1.25em;
+}
+.pSuccess{
+  color: green;
+  font-size: 1.25em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ----- input ----- */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 35px;
+}
+
+.container .label {
+  font-size: 1.15em;
+  padding-left: 10px;
+  position: absolute;
+  top: 14px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.input {
+  width: 300px;
+  height: 50px;
+  border: 4px solid transparent;
+  outline: none;
+  padding: 0px 7px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.2em;
+  background-color: transparent;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+    -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.input:focus {
+  border: 2px solid transparent;
+  color: #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+    -1px -1px 6px rgba(255, 255, 255, 0.4), inset 3px 3px 10px rgba(0, 0, 0, 1),
+    inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.container .input:valid ~ .label,
+.container .input:focus ~ .label {
+  transition: 0.3s;
+  padding-left: 2px;
+  transform: translateY(-35px);
+}
+
+.container .input:valid,
+.container .input:focus {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+    -1px -1px 6px rgba(255, 255, 255, 0.4), inset 3px 3px 10px rgba(0, 0, 0, 1),
+    inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+/* ----- bouton ----- */
+/* === removing default button style ===*/
+.button {
+  margin: 25px 0 0 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  border: 5px solid #343434;
+  border-radius: 8px;
+}
+
+/* button styling */
+.button {
+  --colorNeon: #37ff8b;
+  --border-right: 6px;
+  --text-stroke-color: rgba(255, 255, 255, 0.6);
+  --animation-color: #37ff8b;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+.button:hover {
+  border: 5px solid var(--colorNeon);
+  animation: flicker 3s infinite;
+  cursor: pointer;
+}
+@keyframes flicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    box-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 25px #fff,
+      0 0 15px var(--colorNeon), 0 0 20px var(--colorNeon),
+      0 0 30px var(--colorNeon), 0 0 40px var(--colorNeon),
+      0 0 50px var(--colorNeon);
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  71%,
+  100% {
+    box-shadow: none;
+  }
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+
+/* ---------- switch toggle : inscription/connexion---------- */
+.container-switch{
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.switch-toggle input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -2;
+}
+
+.switch-toggle input[type="checkbox"] + label {
+  position: relative;
+  display: inline-block;
+  width: 255px;
+  height: 62px;
+  border-radius: 20px;
+  margin: 0;
+  cursor: pointer;
+  background-color: #212121;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5),
+    10px 10px 10px rgba(0, 0, 0, 0.6);
+}
+
+.switch-toggle input[type="checkbox"] + label::before {
+  position: absolute;
+  content: "Se Connecter";
+  color: black;
+  font-size: 1.2em;
+  text-align: center;
+  padding-top: 10px;
+  line-height: 25px;
+  top: 8px;
+  left: 8px;
+  width: 120px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #cccccc;
+  box-shadow: -3px -3px 3px rgba(255, 255, 255, 0.5),
+    3px 3px 5px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+}
+
+.switch-toggle input[type="checkbox"]:checked + label::before {
+  left: 50%;
+  content: "S'inscrire";
+  color: #fff;
+  background-color: #555555;
+  box-shadow: -3px -3px 3px rgba(255, 255, 255, 0.5),
+    3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- flip-card ---------- */
+.flip-card {
+  background-color: transparent;
+  max-width: 500px;
+  height: 500px;
+  perspective: 800px;
+  margin: auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+} */
+
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 8px 8px 10px 3px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+}
+
+.flip-card-front {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 2px,
+    rgba(0, 0, 0, 0.5) 0px 7px 13px 3px, rgba(0, 0, 0, 0.5) 0px -1px 0px inset,
+    rgba(204, 204, 204, 0.5) -2px -2px 2px;
+  background-color: #212121;
+}
+
+.flip-card-back {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 2px,
+    rgba(0, 0, 0, 0.5) 0px 7px 13px -3px, rgba(0, 0, 0, 0.5) 0px -1px 0px inset,
+    rgba(204, 204, 204, 0.5) -2px -2px 2px;
+  background-color: #212121;
+  transform: rotateY(180deg);
+}

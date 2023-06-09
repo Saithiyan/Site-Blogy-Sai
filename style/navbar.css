@@ -1,0 +1,98 @@
+nav {
+  background-color: #212121;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.divul,
+ul {
+  display: flex;
+}
+ul a,
+nav a {
+  margin-right: 15px;
+  font-size: 1.35em;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+a:hover {
+  /* color: red; */
+  font-size: 1.55em;
+  transition: all 0.2s ease-in-out;
+}
+.iconburger {
+  opacity: 0;
+}
+
+/* RWD */
+@media (max-width: 500px) {
+  nav {
+    position: relative;
+  }
+  .logo {
+    font-size: 1.5em;
+  }
+  .iconburger {
+    margin-left: 15px;
+    opacity: 1;
+    cursor: pointer;
+  }
+  ul {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    background-color: #212121;
+    height: 200px;
+    width: auto;
+    border-radius: 0 0 15px 0;
+    position: absolute;
+    top: 35px;
+    left: -100%;
+    transition: all 0.5s ease-in-out;
+  }
+  .open {
+    left: 0%;
+  }
+  ul a {
+    font-size: 24px;
+    margin: 5px 15px;
+    transition: all 0.25s ease-in-out;
+  }
+  a:hover {
+    font-size: 1.6em;
+  }
+}
+
+.imgPP{
+  height: 35px;
+  width: 35px;
+  border-radius: 8px;
+  transition: all 1s ease-in-out;
+}
+.imgPP:hover{
+  margin-top: 80%;
+  height: 100px;
+  width: 100px;
+}
+/* 
+<nav>
+        <div>LOGOBro</div>
+        <!-- menu burger -->
+        <div class="divul">
+            <svg>
+            <ul>
+                <a href="">
+                    <li>Accueil</li>
+                </a>
+                <a href="">
+                    <li>Se Connexion</li>
+                </a>
+                <a href="">
+                    <li></li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+*/
